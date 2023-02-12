@@ -29,8 +29,8 @@ const fileUpload = async (req, res) => {
                  storage: storage,
                  fileFilter: function (req, file, callback) {
                     var ext = path.extname(file.originalname);
-                    if(ext !== '.pdf' && ext !== '.doc' && ext !== '.docx') {
-                        return callback(new Error('Only Pdf and Docx file are allowed'));
+                    if(ext !== '.pdf' && ext !== '.jpeg' && ext !== '.jpg') {
+                        return callback(new Error('Only pdf, jpeg and jpg file are allowed'));
                     }
                     callback(null, true)
                 },
