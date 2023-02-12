@@ -27,6 +27,7 @@ app.use(logger);
 app.use("/register",require("./routes/userRegister"));
 app.use("/login",require("./routes/userLogin"));
 app.use("/upload",verifyUserJWT,require("./routes/fileUpload"));
+app.use("/status",verifyUserJWT,require("./routes/checkStatus"));
 
 // FIXME: Just to check working or not 
 app.get("/",verifyUserJWT ,(req, res) => {
