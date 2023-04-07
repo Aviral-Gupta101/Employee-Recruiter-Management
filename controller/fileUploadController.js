@@ -35,7 +35,7 @@ const fileUpload = async (req, res) => {
                     callback(null, true)
                 },
                 limits:{
-                    fileSize: 1024 * 1024
+                    fileSize: 1024 * 1024 * 10
                 }
             }).single("resume");
         
@@ -43,7 +43,8 @@ const fileUpload = async (req, res) => {
                 if (err instanceof multer.MulterError) {
         
                   console.error("Error in fileUploadController");
-                    return res.sendStatus(5001);
+                  console.log(err);
+                    return res.satus(500).json({"Message" : "File size too large to upload"});
         
                 } else if (err) {
                     console.error("Error in fileUploadController");
